@@ -1,58 +1,27 @@
-var x = 600/2;
-var y = 600/2;
 
-var foodx;
-var foody;
-
-var selectPos = true;
-var cheats = false;
-
-var button;
-var framerate = frameRate;
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);
+
+  homeText();
+  projectsText();
+  socialText();
 }
 
 function draw() {
-  background(244, 248, 252);
+  background(51);
 
-  update();
-  show();
-  showFood();
-  frameRate(60);
-
-//////////////////////////////////////////
-
-if(cheats == false) {
-  button = createButton('turn cheats on');
-  button.position(0, 20);
-  button.size(100, 50);
-  button.mousePressed(setCheats);
-} else {
-  button = createButton('turn cheats off');
-  button.position(0, 20);
-  button.size(100, 50);
-  button.mousePressed(setCheats);
+  createHeader();
+  ////////////////////////
 }
 
-///////////////////////////////////////
-
-  if(selectPos == true) {
-    foodx = random(600);
-    foody = random(600);
-    selectPos = false;
-  }
-
-  number = floor(random(5));
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
 
-/////////////////////////////////////
 
-function setCheats() {
-  if(cheats == false) {
-    cheats = true;
-  } else {
-    cheats = false;
-  }
+function createHeader() {
+  fill(66, 107, 244);
+  noStroke();
+  rect(0, 0, 5000, 160);
 }
